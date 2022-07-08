@@ -9,4 +9,13 @@ page = requests.get(url)
 #Cleans up the HTML so it is readable
 soup = BeautifulSoup(page.text, 'lxml')
 
-print(soup)
+#Pulling data via tag
+header = soup.header.p
+# Coverts data from tag to a string
+data = header.string
+
+#Pulling attributes
+att = soup.header.a
+#Displays attributes
+#print(att.attrs)
+print(att['data-toggle'])
